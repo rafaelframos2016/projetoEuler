@@ -1,11 +1,15 @@
 public class ProjectEuler4{
 
-public static void main(String args[]){
+public static void main(String args[]) throws Exception
+{
+//System.out.printf("Número de dígitos dos fatores do palindromo é\n");
+//int a = System.in.read();
+//System.out.printf("o numero  de dígitos é: %d\n",a);
 int i,j;
 int maiorPalindrome=0;
-for(i=100;i<1000;i++)
+for(i=100000;i<1000000;i++)
 {
-	for(j=100;j<1000;j++)
+	for(j=100000;j<1000000;j++)
 	{
 		if((i*j)>maiorPalindrome && isPalindrome(i*j))
 		{
@@ -16,21 +20,18 @@ for(i=100;i<1000;i++)
 System.out.printf("O maior palindromo é %d",maiorPalindrome);
 }
 
-public static boolean isPalindrome(int num){
-if(num>99999)
+public static boolean isPalindrome(int num)
 {
-int p = 100000;
-	if((num%10)==(num/p))
-	{
-	p/=10;
-		if( (num/p)%10 == (num%100)/10 )
-		{
-			String str = String.valueOf(num);
-			if(str.charAt(2)==str.charAt(3))
-			return true;
-		}
-	}
+String str = String.valueOf(num);
+int end = str.length();
+int beg = 0;
+for (int i=0;i<end/2;i++)
+{
+	if(str.charAt(beg+i)==str.charAt(end-1-i))
+	{}
+	else
+	{return false;}
 }
-return false;
+return true;
 }
 }
