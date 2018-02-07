@@ -1,15 +1,24 @@
+import java.util.Scanner;
 public class ProjectEuler4{
 
 public static void main(String args[]) throws Exception
 {
-//System.out.printf("Número de dígitos dos fatores do palindromo é\n");
-//int a = System.in.read();
-//System.out.printf("o numero  de dígitos é: %d\n",a);
-int i,j;
-int maiorPalindrome=0;
-for(i=100000;i<1000000;i++)
+Scanner scanner = new Scanner(System.in);
+int a=0;
+do{
+	System.out.printf("Entre o número de dígitos dos fatores do palindromo[1-5]:\n");
+	a = (int)scanner.nextShort();
+}while(a<1 || a>5);
+System.out.printf("Os fatores tem %d dígitos. \n",a);
+
+final long MAX = (long)Math.pow(10,a);
+final long MIN = (long)Math.pow(10,a-1);
+System.out.printf("%d %d",MAX, MIN);
+long i,j;
+long maiorPalindrome=0;
+for(i=MIN;i<MAX;i++)
 {
-	for(j=100000;j<1000000;j++)
+	for(j=MIN;j<MAX;j++)
 	{
 		if((i*j)>maiorPalindrome && isPalindrome(i*j))
 		{
@@ -20,7 +29,7 @@ for(i=100000;i<1000000;i++)
 System.out.printf("O maior palindromo é %d",maiorPalindrome);
 }
 
-public static boolean isPalindrome(int num)
+public static boolean isPalindrome(long num)
 {
 String str = String.valueOf(num);
 int end = str.length();
