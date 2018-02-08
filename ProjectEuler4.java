@@ -4,11 +4,11 @@ public class ProjectEuler4{
 public static void main(String args[]) throws Exception
 {
 Scanner scanner = new Scanner(System.in);
-int a=0;
+short a=0;
 do{
-	System.out.printf("Entre o número de dígitos dos fatores do palindromo[1-5]:\n");
-	a = (int)scanner.nextShort();
-}while(a<1 || a>5);
+	System.out.printf("Entre o número de dígitos dos fatores do palindromo[1-9]:\n");
+	a = scanner.nextShort();
+}while(a<1 || a>9);
 System.out.printf("Os fatores tem %d dígitos. \n",a);
 
 final long MAX = (long)Math.pow(10,a);
@@ -26,7 +26,7 @@ for(i=MIN;i<MAX;i++)
 		}
 	}
 }
-System.out.printf("O maior palindromo é %d",maiorPalindrome);
+System.out.printf("O maior palindromo com fatores de %d digitos é %d",a,maiorPalindrome);
 }
 
 public static boolean isPalindrome(long num)
