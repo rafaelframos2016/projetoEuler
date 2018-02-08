@@ -9,23 +9,25 @@ do{
 	System.out.printf("Entre o número de dígitos dos fatores do palindromo[1-9]:\n");
 	a = scanner.nextShort();
 }while(a<1 || a>9);
-System.out.printf("Os fatores tem %d dígitos. \n",a);
+//System.out.printf("Os fatores tem %d dígitos. \n",a);
 
 final long MAX = (long)Math.pow(10,a);
 final long MIN = (long)Math.pow(10,a-1);
-System.out.printf("%d %d",MAX, MIN);
+System.out.printf("Aguarde...");
 long i,j;
 long maiorPalindrome=0;
 for(i=MIN;i<MAX;i++)
 {
-	for(j=MIN;j<MAX;j++)
+	for(j=i;j<MAX;j++)
 	{
-		if((i*j)>maiorPalindrome && isPalindrome(i*j))
+		if((i*j)>maiorPalindrome)
+		if(isPalindrome(i*j))
 		{
 			maiorPalindrome=(i*j);
 		}
 	}
 }
+
 System.out.printf("O maior palindromo com fatores de %d digitos é %d",a,maiorPalindrome);
 }
 
